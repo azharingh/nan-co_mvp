@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nan&Co — Bakery in Almaty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fcf3e6;--surf:#fffaf2;--bg2:#f5e3cc;--ink:#3b2729;--mut:#7c5f58;--head:#5c1d24;--brand:#6e1a22;--bi:#fffaf5;--line:#ecd7bf;--gold:#d49431;--glow:rgba(212,148,49,.3);--sh:rgba(92,29,36,.2);--ok:#3f7a3a;--low:#a86a00;--out:#b33932;--map:#f5e3cc;--road:#fffaf2;--river:#e7c9a4;--hill:#e9cfae;--park:#d9dca8;--pt:#fff;
+--serif:"Young Serif",Georgia,serif;--sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1210;--surf:#2c1a16;--bg2:#3a231d;--ink:#f6e6d3;--mut:#c4a592;--head:#ffd9a8;--brand:#d9893a;--bi:#2a1410;--line:#4b2f26;--gold:#f0b255;--glow:rgba(240,178,85,.22);--sh:rgba(0,0,0,.5);--ok:#8fd68a;--low:#f0c36a;--out:#ff9a90;--map:#2c1a16;--road:#4b2f26;--river:#4a3326;--hill:#241410;--park:#34402a;--pt:#1f1210;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1f1210;--surf:#2c1a16;--bg2:#3a231d;--ink:#f6e6d3;--mut:#c4a592;--head:#ffd9a8;--brand:#d9893a;--bi:#2a1410;--line:#4b2f26;--gold:#f0b255;--glow:rgba(240,178,85,.22);--sh:rgba(0,0,0,.5);--ok:#8fd68a;--low:#f0c36a;--out:#ff9a90;--map:#2c1a16;--road:#4b2f26;--river:#4a3326;--hill:#241410;--park:#34402a;--pt:#1f1210;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;font:400 1rem/1.6 var(--sans);color:var(--ink);background:var(--bg) radial-gradient(circle at 10% 0,var(--glow),transparent 45%) fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surf);z-index:20}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--head);margin:0;line-height:1.12}
+h1{font-size:clamp(2.3rem,6vw,3.8rem)}h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:8px}h3{font-size:1.2rem}
+p{margin:0}.mut{color:var(--mut)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:19;background:var(--surf);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:10px 5vw}
+.logo{font-family:var(--serif);font-size:1.6rem;color:var(--head);text-decoration:none;margin-right:auto}
+.logo i{color:var(--gold);font-style:normal}
+nav{display:flex;gap:2px;overflow-x:auto}
+nav a{color:var(--ink);text-decoration:none;font-weight:500;padding:8px 14px;border-radius:99px;white-space:nowrap;transition:.2s}
+nav a:hover{background:var(--bg2)}nav a.on{background:var(--brand);color:var(--bi)}
+@media(max-width:760px){nav{order:3;width:100%}}
+.btn{display:inline-block;background:var(--brand);color:var(--bi);border:2px solid var(--brand);border-radius:99px;padding:10px 20px;font:700 .95rem var(--sans);cursor:pointer;text-decoration:none;transition:transform .15s,filter .2s}
+.btn:hover{filter:brightness(1.12)}.btn:active{transform:scale(.95)}.btn.ghost{background:transparent;color:var(--head);border-color:var(--line)}
+.cartbtn b{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:11px;background:var(--gold);color:#26151a;font-size:.8rem;margin-left:6px;padding:0 5px}
+.cartbtn.bump{animation:bump .4s}@keyframes bump{40%{transform:scale(1.15) rotate(-3deg)}}
+#theme{padding:8px 12px}
+main{max-width:1120px;margin:0 auto;padding:28px 5vw 56px}
+.page[hidden]{display:none}
+.hero{display:grid;gap:30px;grid-template-columns:1.1fr .9fr;align-items:center;padding:10px 0 30px}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.lead{font-size:1.12rem;max-width:34em;margin:14px 0 20px;color:var(--mut)}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.scene{perspective:900px}
+.clock{background:linear-gradient(160deg,var(--surf),var(--bg2));border:1px solid var(--line);border-radius:26px;padding:18px;text-align:center;box-shadow:0 24px 44px var(--sh);transform-style:preserve-3d;transition:transform .12s ease-out}
+.clock svg{width:100%;max-width:320px;height:auto;transform:translateZ(40px)}
+.ring{fill:none;stroke:var(--line);stroke-width:26}.arc{fill:none;stroke-width:26;stroke:var(--brand)}
+#hand{transform-origin:150px 150px;transition:transform .5s cubic-bezier(.3,.8,.3,1)}
+.tick{fill:var(--mut);font:500 12px var(--sans);text-anchor:middle}
+.big{fill:var(--head);font:400 34px var(--serif);text-anchor:middle}
+.off{fill:var(--ink);font:700 12.5px var(--sans);text-anchor:middle}
+.slide{display:flex;align-items:center;gap:10px;margin-top:6px}.slide input{flex:1;accent-color:var(--brand);padding:0}
+.legend{display:flex;justify-content:center;margin:8px 0 2px;font-size:.88rem;gap:6px 16px;flex-wrap:wrap}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 20px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-right:auto}
+.chip{border:1.5px solid var(--line);background:var(--surf);color:var(--ink);border-radius:99px;padding:7px 15px;font:500 .92rem var(--sans);cursor:pointer;transition:.2s}
+.chip:hover{transform:translateY(-2px)}.chip.on{background:var(--brand);border-color:var(--brand);color:var(--bi)}
+input,select{font:inherit;color:var(--ink);background:var(--surf);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+input:focus,select:focus{border-color:var(--brand)}.search{max-width:230px}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));perspective:1100px}
+.item{position:relative;background:var(--surf);border:1px solid var(--line);border-radius:24px;padding:14px;display:flex;flex-direction:column;gap:8px;text-align:center;transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .25s;box-shadow:0 8px 18px var(--sh)}
+.item:hover{box-shadow:0 26px 40px var(--sh)}
+.tile{height:130px;border-radius:18px;display:grid;place-items:center;font-size:4rem;background:radial-gradient(circle at 50% 40%,#ffd69a,var(--bg2) 70%);transform:translateZ(36px);box-shadow:0 14px 20px var(--sh)}
+.tile span{filter:drop-shadow(0 8px 6px rgba(60,20,10,.35))}
+.item h3{font-size:1.1rem;transform:translateZ(22px);margin-top:8px}
+.item .d{font-size:.88rem;color:var(--mut);min-height:2.6em}
+.tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--gold);color:#26151a;border-radius:99px;font-weight:700;font-size:.78rem;padding:3px 10px;transform:translateZ(60px)}
+.price{font-weight:700;font-size:1.15rem;transform:translateZ(20px)}.price s{color:var(--mut);font-weight:400;font-size:.9rem;margin-right:6px}.price b{color:var(--out)}
+.step{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:auto;transform:translateZ(30px)}
+.step button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:var(--surf);color:var(--head);font-size:1.2rem;cursor:pointer}
+.step button:hover{border-color:var(--brand)}
+.add{margin-top:auto;width:100%;transform:translateZ(30px)}
+.two{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+.panel{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;gap:14px;box-shadow:0 8px 18px var(--sh)}
+.panel form{display:grid;gap:14px}
+label.f{display:grid;gap:5px;font-weight:500;font-size:.92rem}
+.r2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.seg{display:flex;background:var(--bg2);border-radius:99px;padding:4px}
+.seg button{flex:1;border:0;background:transparent;color:var(--ink);border-radius:99px;padding:8px;font:500 .92rem var(--sans);cursor:pointer}.seg button.on{background:var(--brand);color:var(--bi)}
+.line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.line .step{margin:0;gap:8px;transform:none}.line .step button{width:30px;height:30px;font-size:1rem}
+.total{display:flex;justify-content:space-between;font-weight:700;font-size:1.2rem}
+.empty{border:2px dashed var(--line);border-radius:14px;padding:18px;text-align:center;color:var(--mut);grid-column:1/-1}
+.plan{position:relative;display:block}.plan input,.day input{position:absolute;opacity:0;width:1px;height:1px}
+.plan div{border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer}.plan input:checked+div{border-color:var(--brand);background:var(--bg2)}
+.plan input:focus-visible+div,.day input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+.day span{display:block;border:1.5px solid var(--line);border-radius:99px;padding:7px 13px;cursor:pointer}.day input:checked+span{background:var(--brand);border-color:var(--brand);color:var(--bi)}
+.days{display:flex;flex-wrap:wrap;gap:6px}
+.msg{padding:12px 14px;border-radius:12px;background:var(--bg2);border-left:4px solid var(--gold)}
+.mapw{display:grid;gap:16px;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start}
+@media(max-width:820px){.mapw{grid-template-columns:1fr}}
+.map{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--map)}.map svg{display:block;width:100%;height:auto}
+.pin{cursor:pointer}.pin .c{fill:var(--brand);stroke:var(--surf);stroke-width:3}.pin .halo{fill:var(--brand);opacity:0}
+.pin.ok .c,.pin.ok .halo{fill:var(--ok)}.pin.low .c,.pin.low .halo{fill:var(--low)}.pin.out .c,.pin.out .halo{fill:var(--out)}
+.pin.sel .halo{opacity:.28}.pin text{fill:var(--pt);font:700 15px var(--sans);text-anchor:middle;dominant-baseline:central;pointer-events:none}.pin .lbl{fill:var(--ink);font:500 12.5px var(--sans)}
+.st{font-weight:700;font-size:.88rem}.st.ok{color:var(--ok)}.st.low{color:var(--low)}.st.out{color:var(--out)}
+.bl{display:flex;flex-wrap:wrap;gap:6px}
+.about{display:grid;gap:30px;grid-template-columns:1fr 1fr;align-items:start}@media(max-width:820px){.about{grid-template-columns:1fr}}
+dl{margin:0;display:grid;gap:14px}dt{font-weight:700}dd{margin:2px 0 0;color:var(--mut)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--brand);color:var(--bi);padding:10px 18px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s;z-index:30;font-weight:500}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{background:#4a1219;color:#fff3e0;padding:34px 5vw 22px}
+.fg{max-width:1120px;margin:0 auto;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+footer h3{color:#ffd9a8;font-size:1.05rem;margin-bottom:6px}footer p{opacity:.92}
+.copy{max-width:1120px;margin:20px auto 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);font-size:.85rem;opacity:.85}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#menu">Nan<i>&amp;</i>Co</a>
+  <button class="btn ghost" id="theme" aria-label="Switch light or dark theme">🌙</button>
+  <a class="btn cartbtn" id="cartbtn" href="#order">🧺 Your order<b id="cc">0</b></a>
+  <nav id="nav"><a href="#menu">Menu</a><a href="#order">Pre-order</a><a href="#map">Branches</a><a href="#about">About</a><a href="#contacts">Contacts</a></nav>
+</header>
+<main>
+<section class="page" id="menu">
+  <div class="hero">
+    <div>
+      <h1>Warm hearth, honest bread.</h1>
+      <p class="lead">Bakery in Almaty with five branches. Pre-order your favorites, subscribe to bread for the week, and see what is on the shelf before you leave home.</p>
+      <div class="cta"><a class="btn" href="#cards">Browse the menu</a><a class="btn ghost" href="#order">Pre-order or subscribe</a></div>
+    </div>
+    <div class="scene"><div class="clock" id="clk">
+      <svg viewBox="0 0 300 300" role="img" aria-label="24-hour dial showing the evening discount window">
+        <circle class="ring" cx="150" cy="150" r="110"/>
+        <circle class="arc" cx="150" cy="150" r="110" stroke-dasharray="144 547.15" transform="rotate(195 150 150)"/>
+        <text class="tick" x="150" y="14">00</text><text class="tick" x="290" y="154">06</text><text class="tick" x="150" y="294">12</text><text class="tick" x="10" y="154">18</text>
+        <g id="hand"><line x1="150" y1="150" x2="150" y2="36" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/><circle cx="150" cy="150" r="6" fill="var(--ink)"/></g>
+        <text class="big" id="ctime" x="150" y="206">--:--</text><text class="off" id="coff" x="150" y="228"></text>
+      </svg>
+      <div class="legend"><span><i class="dot" style="background:var(--brand)"></i>After 19:00, −30% on everything</span></div>
+      <div class="slide"><label for="tm" class="mut">Try a time</label><input id="tm" type="range" min="0" max="24" step="0.25" aria-label="Time of day"><button class="btn ghost" id="live" type="button">Now</button></div>
+    </div></div>
+  </div>
+  <div class="bar"><div class="chips" id="chips"></div><input class="search" id="q" type="search" placeholder="Search the menu" aria-label="Search the menu"></div>
+  <div class="grid" id="cards"></div>
+</section>
+
+<section class="page" id="order" hidden>
+  <h2>Pre-order and subscription</h2>
+  <p class="mut" style="margin-bottom:20px">Order for pick-up, or get bread for the week. Individuals and businesses use the same form.</p>
+  <div class="two">
+    <div class="panel">
+      <h3>Pre-order</h3>
+      <div class="seg" id="ctype"><button type="button" class="on">Individual</button><button type="button">Business</button></div>
+      <div id="cartList"></div>
+      <form id="preForm">
+        <div class="r2"><label class="f">Branch<select class="bsel" name="branch"></select></label><label class="f">Pick-up date<input type="date" name="date" required></label></div>
+        <div class="r2"><label class="f">Pick-up time<input type="time" name="time" value="08:30" required></label><label class="f">Name<input name="name" required autocomplete="name"></label></div>
+        <label class="f">Phone<input name="phone" type="tel" placeholder="+7 7__ ___ __ __" required autocomplete="tel"></label>
+        <div class="total"><span>Total</span><span id="total">0 ₸</span></div>
+        <button class="btn" type="submit">Place pre-order</button>
+      </form>
+      <div class="msg" id="preMsg" hidden></div>
+    </div>
+    <div class="panel">
+      <h3>Bread for the week</h3>
+      <form id="subForm">
+        <div id="plans" style="display:grid;gap:8px"></div>
+        <div><b style="font-weight:500;font-size:.92rem">Pick-up days</b><div class="days" id="days" style="margin-top:6px"></div></div>
+        <div class="r2"><label class="f">Branch<select class="bsel" name="branch"></select></label><label class="f">Start date<input type="date" name="start" required></label></div>
+        <div class="r2"><label class="f">Name<input name="name" required></label><label class="f">Phone<input name="phone" type="tel" required></label></div>
+        <div class="total"><span id="wk">Weekly price</span><span id="wkp">0 ₸</span></div>
+        <button class="btn" type="submit">Create subscription</button>
+      </form>
+      <div class="msg" id="subMsg" hidden></div>
+    </div>
+  </div>
+  <p class="mut" style="margin-top:14px;font-size:.88rem">Static preview: forms show a summary and send nothing until connected to an order system.</p>
+</section>
+
+<section class="page" id="map" hidden>
+  <h2>Find it at your branch</h2>
+  <p class="mut" style="margin-bottom:16px">Choose an item to color the map by availability, then tap a branch for the full shelf. Demo statuses.</p>
+  <div class="bar"><label class="f" style="min-width:230px">Item<select id="mi"></select></label>
+    <div class="legend" style="margin:0"><span><i class="dot" style="background:var(--ok)"></i>In stock</span><span><i class="dot" style="background:var(--low)"></i>Running low</span><span><i class="dot" style="background:var(--out)"></i>Sold out</span></div></div>
+  <div class="mapw">
+    <div class="map"><svg viewBox="0 0 640 420" id="mapSvg" role="img" aria-label="Schematic map of Almaty with five Nan&Co branches">
+      <polygon points="0,420 0,350 80,310 150,340 240,280 320,330 410,270 500,325 580,285 640,330 640,420" fill="var(--hill)"/>
+      <rect x="395" y="36" width="100" height="64" rx="14" fill="var(--park)"/><rect x="60" y="170" width="70" height="46" rx="12" fill="var(--park)"/>
+      <path d="M0 80 C120 120 200 40 320 90 S520 150 640 100" fill="none" stroke="var(--river)" stroke-width="14" stroke-linecap="round"/>
+      <g stroke="var(--road)" stroke-width="9" fill="none" stroke-linecap="round"><path d="M20 135 H620"/><path d="M20 245 H620"/><path d="M115 20 V320"/><path d="M290 20 V320"/><path d="M525 20 V320"/><path d="M30 40 L300 245 L620 335" stroke-width="6"/></g>
+      <text x="445" y="72" class="tick">Park</text><text x="320" y="408" class="tick">Mountains to the south</text>
+      <g id="pins"></g></svg></div>
+    <div class="panel"><div class="bl" id="bl"></div><div><h3 id="bn"></h3><p class="mut" id="bi"></p></div><div id="bs"></div></div>
+  </div>
+</section>
+
+<section class="page" id="about" hidden>
+  <div class="about">
+    <div>
+      <h2>About Nan&amp;Co</h2>
+      <p style="margin:10px 0 14px">Nan means bread. We are a neighborhood bakery in Almaty with five branches, baking in a morning and an afternoon wave so shelves stay fresh and little is thrown away.</p>
+      <p class="mut">Whatever is left at the end of the day becomes croutons, garlic chips and bread pudding, so good bread keeps its value.</p>
+    </div>
+    <dl>
+      <div><dt>After 19:00</dt><dd>30% off everything left on the shelf, at every branch.</dd></div>
+      <div><dt>Open daily</dt><dd>07:00 to 22:00 at every branch.</dd></div>
+      <div><dt>Pre-order</dt><dd>Reserve your bread online and pick it up warm.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="page" id="contacts" hidden>
+  <h2>Contacts</h2>
+  <p class="mut" style="margin-bottom:20px">Call, write or visit any of our five branches in Almaty.</p>
+  <div class="two">
+    <div class="panel"><h3>Talk to us</h3><p>Phone: +7 (727) 000-00-00<br>Email: hello@nanandco.example<br>Businesses: order@nanandco.example</p></div>
+    <div class="panel"><h3>Branches</h3><div id="cl"></div></div>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<footer>
+  <div class="fg">
+    <div><h3>Nan&amp;Co</h3><p>Bakery in Almaty, Kazakhstan</p></div>
+    <div><h3>Contacts</h3><p>+7 (727) 000-00-00<br>hello@nanandco.example</p></div>
+    <div><h3>Address</h3><p>Almaty, Kazakhstan<br>Head office: Abay Ave 00</p></div>
+    <div><h3>Follow us</h3><p>Instagram · Telegram · TikTok</p></div>
+  </div>
+  <div class="copy">© Nan&amp;Co, Almaty. Sample content for design preview.</div>
+</footer>
+<script>
+var IT=[{n:"Baguette",c:"Bread",p:450,e:"🥖",d:"Crisp crust, airy crumb."},{n:"Sourdough loaf",c:"Bread",p:900,e:"🍞",d:"Slow-risen with a gentle tang."},{n:"Whole-grain loaf",c:"Bread",p:800,e:"🌾",d:"Hearty, nutty and filling."},
+{n:"Cheese pie",c:"Savory",p:1200,e:"🧀",d:"Soft dough, melted cheese."},{n:"Meat pie",c:"Savory",p:1500,e:"🥧",d:"Juicy filling, golden top."},{n:"Sausage roll",c:"Savory",p:700,e:"🌭",d:"Flaky pastry, warm center."},
+{n:"Butter croissant",c:"Pastries",p:600,e:"🥐",d:"Flaky layers, real butter."},{n:"Cinnamon bun",c:"Pastries",p:550,e:"🥯",d:"Sticky, spiced and warm."},{n:"Berry pie",c:"Pastries",p:2200,e:"🫐",d:"Sweet berries, buttery crust."},{n:"Éclair",c:"Pastries",p:650,e:"🍫",d:"Light choux, chocolate glaze."}];
+var BR=[{n:"Central",a:"Panfilov St 00",x:200,y:160,s:"iiiiliiloi"},{n:"Dostyk",a:"Dostyk Ave 00",x:330,y:215,s:"iliiolillo"},{n:"Al-Farabi",a:"Al-Farabi Ave 00",x:450,y:150,s:"oiiliiiilo"},{n:"Sairan",a:"Tole Bi St 00",x:230,y:285,s:"iiolliiooi"},{n:"Auezov",a:"Satpayev St 00",x:520,y:270,s:"liiiiolili"}];
+var PL=[{n:"Daily loaf",d:"1 baguette per pick-up",p:450},{n:"Family basket",d:"1 sourdough, 2 croissants, 1 cinnamon bun",p:2650},{n:"Office box",d:"10 mixed pastries",p:6000}];
+var DAYS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],ST={i:["In stock","ok"],l:["Running low","low"],o:["Sold out","out"]};
+var H=null,cart={},F="All",Q="",last=null,bsel=0,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function $(s){return document.querySelector(s)}function $$(s){return document.querySelectorAll(s)}
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g," ")+" ₸"}
+function hr(){if(H!==null)return H;var d=new Date();return d.getHours()+d.getMinutes()/60}
+function dsc(){return hr()>=19?.3:0}
+function pr(i){return Math.round(i.p*(1-dsc()))}
+function hhmm(h){var m=Math.round(h*60);return("0"+(Math.floor(m/60)%24)).slice(-2)+":"+("0"+m%60).slice(-2)}
+function toast(t){var e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("on")},1800)}
+function ctrl(k){return cart[k]?'<div class="step"><button data-dec="'+k+'" aria-label="Remove one">−</button><b>'+cart[k]+'</b><button data-inc="'+k+'" aria-label="Add one">+</button></div>':'<button class="btn add" data-add="'+k+'">Add to order</button>'}
+function menu(){
+  var d=dsc();
+  $("#cards").innerHTML=IT.map(function(i,k){
+    if(F!=="All"&&i.c!==F)return"";
+    if(Q&&i.n.toLowerCase().indexOf(Q)<0)return"";
+    var pc=d?'<s>'+fmt(i.p)+'</s><b>'+fmt(pr(i))+'</b>':fmt(i.p);
+    return'<div class="item" data-tilt>'+(d?'<span class="tag">−30%</span>':'')+'<div class="tile" aria-hidden="true"><span>'+i.e+'</span></div><h3>'+i.n+'</h3><p class="d">'+i.d+'</p><div class="price">'+pc+'</div>'+ctrl(k)+'</div>';
+  }).join("")||'<div class="empty">Nothing matches. Clear the search or pick another filter.</div>';
+  if(last){var e=$('#cards [data-'+last.t+'="'+last.k+'"]');e&&e.focus()}
+}
+function cartR(){
+  var ks=Object.keys(cart),t=0,c=0;
+  $("#cartList").innerHTML=ks.length?ks.map(function(k){var i=IT[k],l=pr(i)*cart[k];t+=l;c+=cart[k];return'<div class="line"><span>'+i.e+" "+i.n+'<br><small class="mut">'+fmt(pr(i))+' each</small></span><span class="step"><button data-dec="'+k+'" aria-label="Remove one">−</button><b>'+cart[k]+'</b><button data-inc="'+k+'" aria-label="Add one">+</button></span><b>'+fmt(l)+'</b></div>'}).join(""):'<div class="empty">Your order is empty. <a href="#menu" style="color:var(--head)">Pick items from the menu</a>.</div>';
+  $("#total").textContent=fmt(t);$("#cc").textContent=c;
+}
+function clock(){
+  var h=hr();$("#hand").style.transform="rotate("+(h/24*360)+"deg)";$("#tm").value=h;$("#ctime").textContent=hhmm(h);
+  $("#coff").textContent=h>=19?"−30% on everything":"Fresh from the oven";
+}
+function refresh(){clock();menu();cartR()}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-add],[data-inc],[data-dec]");if(!b)return;
+  var t=b.hasAttribute("data-add")?"add":b.hasAttribute("data-inc")?"inc":"dec",k=b.getAttribute("data-"+t);
+  if(t==="dec"){cart[k]--;if(cart[k]<1)delete cart[k];last=cart[k]?{t:"dec",k:k}:{t:"add",k:k}}
+  else{cart[k]=(cart[k]||0)+1;last={t:"inc",k:k};if(t==="add"){toast(IT[k].e+" "+IT[k].n+" added to your order");var c=$("#cartbtn");c.classList.remove("bump");void c.offsetWidth;c.classList.add("bump")}}
+  menu();cartR();
+});
+$("#chips").innerHTML=["All","Bread","Savory","Pastries"].map(function(c){return'<button class="chip'+(c==="All"?" on":"")+'" data-f="'+c+'">'+c+'</button>'}).join("");
+$("#chips").addEventListener("click",function(e){var b=e.target.closest("[data-f]");if(!b)return;F=b.dataset.f;last=null;$$(".chip[data-f]").forEach(function(x){x.classList.toggle("on",x===b)});menu()});
+$("#q").addEventListener("input",function(e){Q=e.target.value.toLowerCase();last=null;menu()});
+$("#tm").addEventListener("input",function(e){H=+e.target.value;last=null;refresh()});
+$("#live").addEventListener("click",function(){H=null;last=null;refresh()});
+$("#theme").onclick=function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=d?"light":"dark";this.textContent=d?"🌙":"☀️"};
+$$("#ctype button").forEach(function(b){b.onclick=function(){$$("#ctype button").forEach(function(x){x.classList.toggle("on",x===b)})}});
+/* 3D tilt */
+function tilt(el,m,e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform="rotateY("+x*m+"deg) rotateX("+-y*m+"deg)"}
+document.addEventListener("pointermove",function(e){if(reduce||e.pointerType==="touch")return;var c=e.target.closest&&e.target.closest("[data-tilt],#clk");if(c)tilt(c,c.id?22:14,e)});
+document.addEventListener("pointerout",function(e){var c=e.target.closest&&e.target.closest("[data-tilt],#clk");if(c&&!c.contains(e.relatedTarget))c.style.transform=""});
+/* order forms */
+$$(".bsel").forEach(function(s){s.innerHTML=BR.map(function(b){return"<option>"+b.n+", "+b.a+"</option>"}).join("")});
+$("#plans").innerHTML=PL.map(function(p,k){return'<label class="plan"><input type="radio" name="plan" value="'+k+'"'+(k?"":" checked")+'><div><b>'+p.n+'</b> <span class="mut">'+fmt(p.p)+' per pick-up</span><br><small class="mut">'+p.d+'</small></div></label>'}).join("");
+$("#days").innerHTML=DAYS.map(function(d,k){return'<label class="day"><input type="checkbox" name="d" value="'+d+'"'+(k%2==0&&k<5?" checked":"")+'><span>'+d+'</span></label>'}).join("");
+function wk(){var f=$("#subForm"),n=f.querySelectorAll('input[name="d"]:checked').length,p=PL[+f.querySelector('input[name="plan"]:checked').value];$("#wkp").textContent=fmt(p.p*n);$("#wk").textContent="Weekly price, "+n+" pick-up"+(n==1?"":"s");return n}
+$("#subForm").addEventListener("change",wk);wk();
+$("#preForm").addEventListener("submit",function(e){e.preventDefault();var f=e.target,m=$("#preMsg"),ks=Object.keys(cart);m.hidden=false;
+  m.textContent=ks.length?f.name.value+", your pre-order: "+ks.map(function(k){return cart[k]+" × "+IT[k].n}).join(", ")+". Total "+$("#total").textContent+", pick-up "+f.date.value+" at "+f.time.value+", "+f.branch.value+".":"Add at least one item from the menu first."});
+$("#subForm").addEventListener("submit",function(e){e.preventDefault();var f=e.target,m=$("#subMsg"),n=wk(),d=[];f.querySelectorAll('input[name="d"]:checked').forEach(function(x){d.push(x.value)});m.hidden=false;
+  m.textContent=n?f.name.value+", your "+PL[+f.querySelector('input[name="plan"]:checked').value].n+" subscription starts "+f.start.value+" with pick-up on "+d.join(", ")+" at "+f.branch.value+". Weekly price "+$("#wkp").textContent+".":"Choose at least one pick-up day."});
+/* map */
+$("#mi").innerHTML='<option value="-1">All items</option>'+IT.map(function(i,k){return'<option value="'+k+'">'+i.e+" "+i.n+"</option>"}).join("");
+$("#bl").innerHTML=BR.map(function(b,k){return'<button class="chip" data-b="'+k+'">'+b.n+"</button>"}).join("");
+$("#cl").innerHTML=BR.map(function(b,k){return'<div class="line"><span><b>'+b.n+'</b><br><small class="mut">'+b.a+', Almaty</small></span><button class="btn ghost" data-go="'+k+'">View on map</button></div>'}).join("");
+function pins(){var s=+$("#mi").value;$("#pins").innerHTML=BR.map(function(b,k){var c=s<0?"":ST[b.s[s]][1];
+  return'<g class="pin '+c+(k===bsel?" sel":"")+'" data-b="'+k+'" tabindex="0" role="button" aria-label="'+b.n+' branch'+(s<0?"":", "+ST[b.s[s]][0])+'"><circle class="halo" cx="'+b.x+'" cy="'+b.y+'" r="27"/><circle class="c" cx="'+b.x+'" cy="'+b.y+'" r="17"/><text x="'+b.x+'" y="'+b.y+'">'+(k+1)+'</text><text class="lbl" x="'+b.x+'" y="'+(b.y+36)+'">'+b.n+"</text></g>"}).join("")}
+function panel(){var b=BR[bsel],s=+$("#mi").value;$$("#bl .chip").forEach(function(x,k){x.classList.toggle("on",k===bsel)});
+  $("#bn").textContent=b.n+" branch";$("#bi").textContent=b.a+", Almaty. Open daily 07:00 to 22:00.";
+  $("#bs").innerHTML=IT.map(function(i,j){var t=ST[b.s[j]];return'<div class="line" style="'+(j===s?"font-weight:700":"")+'"><span>'+i.e+" "+i.n+'</span><span class="st '+t[1]+'">'+t[0]+"</span></div>"}).join("")}
+function pick(k){bsel=k;pins();panel()}
+$("#mi").addEventListener("change",function(){pins();panel()});
+$("#mapSvg").addEventListener("click",function(e){var p=e.target.closest("[data-b]");p&&pick(+p.dataset.b)});
+$("#mapSvg").addEventListener("keydown",function(e){var p=e.target.closest("[data-b]");if(p&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(+p.dataset.b)}});
+$("#bl").addEventListener("click",function(e){var p=e.target.closest("[data-b]");p&&pick(+p.dataset.b)});
+$("#cl").addEventListener("click",function(e){var p=e.target.closest("[data-go]");if(p){pick(+p.dataset.go);location.hash="map"}});
+/* pages */
+function show(){var id=location.hash.slice(1)||"menu";if(id==="cards")id="menu";var el=/^[a-z]+$/.test(id)&&document.getElementById(id);if(!el||!el.classList.contains("page"))id="menu";
+  $$(".page").forEach(function(p){p.hidden=p.id!==id});$$("#nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+id)});
+  if(location.hash==="#cards"){var c=$("#cards");c&&c.scrollIntoView()}else window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();refresh();pick(0);
+setInterval(function(){if(H===null)refresh()},60000);
+</script>
+</body>
+</html>
